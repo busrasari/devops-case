@@ -170,6 +170,28 @@ sudo bash scripts/test/test_redis.sh
   - **Password**: `admin`
 - Pre-configured dashboards are automatically loaded from `monitoring/grafana/dashboards/`.
 
+   ### PostgreSQL Monitoring Dashboard:
+   
+  The Grafana dashboard for PostgreSQL includes the following key metrics:
+  - **PostgreSQL Instance Up**: Checks if the database is running (`pg_up` metric).
+  - **Deadlocks per Minute**: Displays the number of deadlocks per minute (`pg_stat_database_deadlocks`).
+  - **Active Connections Usage**: Shows the ratio of active connections to the maximum allowed connections.
+  - **Transaction Rate (TPS)**: Measures the number of transactions per second (`pg_stat_database_xact_commit` and `pg_stat_database_xact_rollback`).
+  - **Cache Hit Ratio**: Analyzes the memory cache hit ratio.
+  - **Memory & Buffer Usage**: Displays shared buffer and work memory usage (`pg_settings_shared_buffers_bytes` and `pg_settings_work_mem_bytes`).
+  - **Connection & Worker Limits**: Monitors the PostgreSQL connection and worker process limits (`pg_settings_max_connections`, `pg_settings_max_worker_processes`).
+
+
+  ### Redis Monitoring Dashboard:
+  
+  The Grafana dashboard for Redis provides the following key metrics:
+  - **Total Keys**: Shows the total number of stored keys (`redis_db_keys`).
+  - **Clients**: Displays the number of connected clients (`redis_connected_clients`).
+  - **Commands per Second**: Tracks the number of commands processed per second (`redis_commands_total`).
+  - **Command Latency per Second**: Measures the latency of Redis commands.
+  - **Hit & Miss Ratio**: Displays cache hit and miss rates (`redis_keyspace_hits_total`, `redis_keyspace_misses_total`).
+  - **Keys Eviction & Expiration**: Monitors keys being evicted or expired (`redis_expired_keys_total`, `redis_evicted_keys_total`).
+
 ## Stopping & Cleaning Up
 
 ### Stop Containers
